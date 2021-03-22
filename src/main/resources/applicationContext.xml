@@ -10,41 +10,7 @@
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
-
-    <bean id="musicBean"
-          class="com.romanchuk.testapp.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-          factory-method="classicalMusic"
-    />
-
-    <bean id="musicBean1"
-          class="com.romanchuk.testapp.ClassicalMusic">
-    </bean>
-
-    <bean id="musicBean2"
-          class="com.romanchuk.testapp.RockMusic">
-    </bean>
-
-    <bean id="musicBean3"
-          class="com.romanchuk.testapp.BluesRockMusic">
-    </bean>
-
-    <bean id="musicPlayer"
-          class="com.romanchuk.testapp.MusicPlayer">
-        <property name="musicList">
-            <list>
-                <ref bean="musicBean1"/>
-                <ref bean="musicBean2"/>
-                <ref bean="musicBean3"/>
-            </list>
-        </property>
-
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
-
+    <context:component-scan base-package="com.romanchuk.testapp"/>
 
 
 </beans>
