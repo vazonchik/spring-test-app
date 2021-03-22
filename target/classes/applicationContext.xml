@@ -12,6 +12,13 @@
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
+    <bean id="musicBean"
+          class="com.romanchuk.testapp.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="classicalMusic"
+    />
+
     <bean id="musicBean1"
           class="com.romanchuk.testapp.ClassicalMusic">
     </bean>
